@@ -1,0 +1,11 @@
+{
+    "asset": "838c6282eca684d4a94fd9f4dac298c6",
+    "fileName": "0199ee60-a300-7216-9950-97c4d13db92b.pose.json",
+    "prompt": "gram something from backpack, standing still",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1374186980,
+    "w3CTraceId": "b32ee86a7de229b67440ca708426eed0",
+    "isTrimmed": false
+}

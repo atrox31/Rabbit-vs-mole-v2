@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ad35a6bedbed94d986dd59aa3b72d6, type: 3}
+  m_Name: ActorRabbit
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.Actor
+  actorName: Rabbit
+  actorModel: {fileID: 919132149155446097, guid: 8f17464dfde0b4f46897623bde68b955, type: 3}
+  renderVector3Pose: {x: -0.5, y: -3, z: 100}
+  renderVector3Rotation: {x: 0, y: 180, z: 0}
+  renderVector3Scale: {x: 1, y: 1, z: 1}
+  poses:
+  - clip: {fileID: 7400000, guid: 87333450dd7c20841adcc7f19c8ca35f, type: 2}
+    name: Two arms behind head
+  - clip: {fileID: 7400000, guid: 586cbf6d01b57f74cb5998c97689b348, type: 2}
+    name: One arm behind back
+  - clip: {fileID: 7400000, guid: aa15546639c814146b3453ea35377d86, type: 2}
+    name: Ask
+  - clip: {fileID: 7400000, guid: 908762906a6ac9b4c825de0e7de05012, type: 2}
+    name: Stand
+  - clip: {fileID: 7400000, guid: bbb47143adf2bd74f88d3059c10cb9ca, type: 2}
+    name: Stop
+  - clip: {fileID: 7400000, guid: 891a48e0debebb74d86bddbd20d5fb11, type: 2}
+    name: Thinking

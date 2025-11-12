@@ -1,0 +1,11 @@
+{
+    "asset": "75e9d14b5bacb1f4ca10fb870341e9b4",
+    "fileName": "0199ee5b-f150-73f2-b6b9-f133e29606fb.pose.json",
+    "prompt": "picking up item from back pocket",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1711081620,
+    "w3CTraceId": "98c20ea149e384f9a883b705ba8a2523",
+    "isTrimmed": false
+}

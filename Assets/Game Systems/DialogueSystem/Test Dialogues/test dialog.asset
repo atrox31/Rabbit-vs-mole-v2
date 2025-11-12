@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b6a5acdb2d73f4b85d47b2546c9758, type: 3}
+  m_Name: test dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DialogueSequence
+  Nodes:
+  - GUID: 684ce179-0aec-43e2-a8e9-0ca8c7e267bc
+    EditorPosition: {x: 80, y: 409}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Stand
+    ScreenPosition: 0
+    text: first dialog
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 13e8529d-3ecc-4ba3-b1da-7e3826d654a1
+  - GUID: 13e8529d-3ecc-4ba3-b1da-7e3826d654a1
+    EditorPosition: {x: 379, y: 409}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Ask
+    ScreenPosition: 0
+    text: seccond dialog
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: f350a653-b4f5-4b20-8db5-790e83042344
+  - GUID: f350a653-b4f5-4b20-8db5-790e83042344
+    EditorPosition: {x: 685, y: 409}
+    _actor: {fileID: 0}
+    _poseName: 
+    ScreenPosition: 1
+    text: dilog without actor right
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: c1084d3e-d33d-4d20-b541-e1935934d061
+  - GUID: c1084d3e-d33d-4d20-b541-e1935934d061
+    EditorPosition: {x: 1034, y: 409}
+    _actor: {fileID: 11400000, guid: 46ce34c6e8742ea489393e230f270ad4, type: 2}
+    _poseName: Thinking
+    ScreenPosition: 1
+    text: right dialog with actor
+    ExitPorts: []
+  - GUID: 252b1162-532e-4d41-95c8-9b3b961964dc
+    EditorPosition: {x: 846.4, y: 171.92499}
+    _actor: {fileID: 0}
+    _poseName: (none)
+    ScreenPosition: 0
+    text: 
+    ExitPorts: []
+  StartNodeGUID: 684ce179-0aec-43e2-a8e9-0ca8c7e267bc

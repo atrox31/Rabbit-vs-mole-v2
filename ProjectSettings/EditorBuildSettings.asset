@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Game/m_rabbit_solo/m_rabbit_solo.unity
+    guid: cb6b163db6dc6b04496fa28031aec412
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 293eb7ce551ba9449be53a2ebfd23909, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 42b10faad25d8074f8ac3ed24443be11, type: 3}
+  m_UseUCBPForAssetBundles: 0

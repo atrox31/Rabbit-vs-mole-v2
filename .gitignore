@@ -1,0 +1,80 @@
+# -----------------------------------------------------------------------------
+# UNITY-GENERATED FILES (STANDARD EXCLUSIONS)
+# -----------------------------------------------------------------------------
+# Standard exclusions: files that should never be tracked by Git
+
+/Library/
+/Temp/
+/Obj/
+/Builds/
+/Logs/
+/MemoryCaptures/
+/UserSettings/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# OS Generated Files
+.DS_Store
+.gitkeep
+
+# -----------------------------------------------------------------------------
+# ASSET EXCLUSIONS FOR PORTFOLIO (CUSTOM)
+# -----------------------------------------------------------------------------
+# This section ensures that all large assets are excluded, leaving only code.
+
+# 1. Exclude all files and subfolders within Assets
+/Assets/*
+
+# 2. RE-INCLUDE REQUIRED FOLDERS (Structure)
+# Re-include the main structure folders so Git can track the hierarchy.
+# Important: Git only tracks files, so we need to re-include specific files/types later.
+!/Assets/*/
+
+# 3. RE-INCLUDE CODE AND CONFIGURATION FILES (What you want to show)
+
+# Re-include C# scripts and their essential meta files
+!/Assets/**/*.cs
+!/Assets/**/*.cs.meta
+
+# Re-include Shader files and their meta files
+!/Assets/**/*.shader
+!/Assets/**/*.shader.meta
+
+# Re-include Assembly Definition Files (.asmdef)
+!/Assets/**/*.asmdef
+!/Assets/**/*.asmdef.meta
+
+# Re-include Text files, Markdown files, or other documentation you might have
+!/Assets/**/*.txt
+!/Assets/**/*.md
+!/Assets/**/*.json
+
+# Re-include Prefabs and Scenes (Only to show structure/hierarchy, though they won't work without assets)
+# Prefabs and Scenes often contain important links and logic structure.
+!/Assets/**/*.prefab
+!/Assets/**/*.prefab.meta
+!/Assets/**/*.unity
+!/Assets/**/*.unity.meta
+
+# 4. EXPLICITLY EXCLUDE LARGE ASSET TYPES (Ensure they are not re-included)
+# Even if the whole folder is excluded, this adds extra safety.
+
+/Assets/**/*.mat            # Materials
+/Assets/**/*.fbx            # Models
+/Assets/**/*.obj            # Models
+/Assets/**/*.blend          # Models (Blender)
+/Assets/**/*.png            # Textures
+/Assets/**/*.jpg            # Textures
+/Assets/**/*.tga            # Textures
+/Assets/**/*.wav            # Sounds
+/Assets/**/*.mp3            # Sounds
+/Assets/**/*.ogg            # Sounds

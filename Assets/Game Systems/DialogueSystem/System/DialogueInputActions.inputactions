@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "DialogueInputActions",
+    "maps": [
+        {
+            "name": "Dialogue",
+            "id": "607c1e5f-e241-45b0-9ff6-48ed7da4bd0e",
+            "actions": [
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "234e3964-9ed2-46f8-b613-c0783e424692",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a96aec93-7789-4f8b-a3e6-b91535cb93d9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e37e7fc2-5e70-4182-a4b2-4fb6da664c4b",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

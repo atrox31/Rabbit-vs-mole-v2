@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: a93fed39048d8fc459e458760fe8b0e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _dialogueActionsAsset: {fileID: -944628639613478452, guid: 9e53af62c3fe2fc45a6696e4270681a0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

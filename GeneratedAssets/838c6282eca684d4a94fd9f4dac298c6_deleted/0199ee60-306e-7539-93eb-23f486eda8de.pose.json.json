@@ -1,0 +1,11 @@
+{
+    "asset": "838c6282eca684d4a94fd9f4dac298c6",
+    "fileName": "0199ee60-306e-7539-93eb-23f486eda8de.pose.json",
+    "prompt": "gram something from back",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 922763936,
+    "w3CTraceId": "bc2e5508e992ab9c4a583df291f8af9f",
+    "isTrimmed": false
+}

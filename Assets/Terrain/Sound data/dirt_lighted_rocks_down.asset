@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3176199fa822b640997a181f0255243, type: 3}
+  m_Name: dirt_lighted_rocks_down
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingImmersionSystem.TerrainLayerData
+  terrainLayer: {fileID: 8574412962073106934, guid: d5d5a56e581314b45bc87cf717f146a9, type: 2}
+  audioClips:
+  - {fileID: 8300000, guid: a8b6c6ef7c6c2bc438272bdf63c5210b, type: 3}
+  - {fileID: 8300000, guid: ca9147c51084cee4a8772c819f2be558, type: 3}
+  - {fileID: 8300000, guid: 7a53b4d7727df5741b2523095eb42fa2, type: 3}
+  - {fileID: 8300000, guid: 7b6953e2314707c4691513bdb499d40c, type: 3}
+  - {fileID: 8300000, guid: d8989f6005bbbf1478fea82bc78a3806, type: 3}

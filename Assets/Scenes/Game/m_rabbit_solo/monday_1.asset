@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b6a5acdb2d73f4b85d47b2546c9758, type: 3}
+  m_Name: monday_1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DialogueSequence
+  Nodes:
+  - GUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+    EditorPosition: {x: 109, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Ask
+    ScreenPosition: 0
+    text: "Przy kamieniu mia\u0142em skr\u0119ci\u0107 w..."
+    ExitPorts: []
+  - GUID: 3e0a3671-db1a-465f-9be6-0921b9d94d80
+    EditorPosition: {x: 473, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: (none)
+    ScreenPosition: 0
+    text: 
+    ExitPorts: []
+  - GUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
+    EditorPosition: {x: 408, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Thinking
+    ScreenPosition: 0
+    text: Lewo!
+    ExitPorts: []
+  StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2160939094941136124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2534635220190817443}
+  - component: {fileID: 5383738534873396114}
+  - component: {fileID: 1438551211401866141}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 32ba0f202f0494055bd14b4d18d07594, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2534635220190817443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160939094941136124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5383738534873396114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160939094941136124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a6d2fb86c465a4caa7bc24bdcbc900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::HierarchyIcons.Folder
+  haveZeroPos: 1
+  gizmoIconName: Speaker
+--- !u!114 &1438551211401866141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160939094941136124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e84062d2011d14f88f87865480542e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  mainMixer: {fileID: 24100000, guid: e12f3edd099098c45a5f8d1473b3f11c, type: 2}
+  musicGroup: {fileID: -6584747449857709745, guid: e12f3edd099098c45a5f8d1473b3f11c, type: 2}
+  sfxGroup: {fileID: -4798904990879157992, guid: e12f3edd099098c45a5f8d1473b3f11c, type: 2}
+  dialogueGroup: {fileID: 5015179072278819131, guid: e12f3edd099098c45a5f8d1473b3f11c, type: 2}
+  ambientGroup: {fileID: -5317126169169319774, guid: e12f3edd099098c45a5f8d1473b3f11c, type: 2}
+  musicFadeTime: 1.5
+  sfx3DPrefab: {fileID: 3708614357578973670, guid: d2a72453ae84dab4286b7285661dc077, type: 3}
+  sfxPoolSize: 20

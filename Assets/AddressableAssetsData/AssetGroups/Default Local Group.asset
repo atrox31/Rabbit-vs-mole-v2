@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Default Local Group
+  m_GUID: 65050288c2c42eb44b345c80586a3a0c
+  m_SerializeEntries:
+  - m_GUID: 0644ead4793f8494eb4c7389ec5bb3f7
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Undergrowth_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 075ae293a6b5f014cb26172056de6bad
+    m_Address: Assets/Terrain/Sound data/Grass_lighted_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09d46cbbbe5b54f4fad3e0eabf9f0181
+    m_Address: Assets/Terrain/Sound data/dirt_lighted_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fd4ad982e1d59f4285ec37ee79855fb
+    m_Address: Assets/Audio/Sound/Ambient/nature light 2.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 117ee758af99f55458d5e299dd568462
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tall_Grass_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a0c8f7d45be5b741950179dfdcee051
+    m_Address: Assets/Terrain/Sound data/clay_light_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3011b8239a9b9da4588acb9e7b7a61e4
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Mud_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38025832fbb2254429dd042621e613bc
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/DirtRoad_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41acfb25a96f3d74b9b024c518acfe35
+    m_Address: Assets/Terrain/Sound data/dirt_desatured_rocks_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 488bf99f6041bcc4cbbc805f642fcd8a
+    m_Address: Assets/Prefabs/Mole.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d33ee953c941e2449b0f325e128f799
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/DirtRoad_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d6f9ef662a06c148bdbf92d8972618f
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/DirtRoad_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55adab65a61dd1748bfcbc1d59513708
+    m_Address: Assets/Terrain/Sound data/Grass_swamp_dark_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ad1e3f4e3be3e84fa393a4549a0c4db
+    m_Address: Assets/Audio/Sound/rabbit/CarrotPickUpSound.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f9dd103636ccbb4db303e72d4df6f6c
+    m_Address: Assets/Terrain/Sound data/dirt_lighted_rocks_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6737f6ea985120c419ac1054ba171c3b
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Mud_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68919eef930646c47baec2350ce2b51f
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/PavementTiles_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 747d4123950a0be418dff7a9954c773a
+    m_Address: Assets/Prefabs/Rabbit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74c50da7486e08244961e36b819cebdc
+    m_Address: Assets/Prefabs/SoundEffectManager.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a53b4d7727df5741b2523095eb42fa2
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tile_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b6953e2314707c4691513bdb499d40c
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tile_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d5e82ddfdfe8df4ba1984a46be89aea
+    m_Address: Assets/Terrain/Sound data/dirt_overdesatured_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841790db74c1c3d4dadf5a75852a13b3
+    m_Address: Assets/Audio/Sound/Ambient/nature light 3.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a5d0caffed7ad8408762173197c89eb
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/PavementTiles_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fc252ff972370241b2451ee8684b871
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/PavementTiles_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90da0d30998cb46439d39f4b5b25bb93
+    m_Address: Assets/Audio/Sound/mole/digging a mold.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9199a33b3a63f5841a2cdd5513520098
+    m_Address: Assets/Terrain/Sound data/Grass_desatured_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b8f6b4a9f1697409f894c4d545c97b
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Undergrowth_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b158ae3d80b64c45a4fb3ecd709e9c5
+    m_Address: Assets/Terrain/Sound data/Grass_normal_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8b6c6ef7c6c2bc438272bdf63c5210b
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tile_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa5daff71fd47a5449265db33ed14374
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tall_Grass_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaf65392bf095c541b781b0c6619106b
+    m_Address: Assets/Terrain/Sound data/dirt_normal_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba124861ef5fc454bb9d95682ed8c3b0
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Undergrowth_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd7d6d8f9efe64749a3be0dd47d8519c
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/DirtRoad_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c30be629cb0f2f047926257d3c348fa2
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tall_Grass_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5643373a575c214d959344aea28334d
+    m_Address: Assets/Terrain/Sound data/Grass_swamp_normal_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca9147c51084cee4a8772c819f2be558
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tile_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbfddad0efd61024fab6ce84aff2d6bb
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Undergrowth_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d40f4fd393199c044bbffbe5df15fd1b
+    m_Address: Assets/Terrain/Sound data/Grass_darked_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4301f3285e9f374c99ee89d329573ff
+    m_Address: Assets/Terrain/Sound data/dirt_claydarked_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d73883666816aa3488955ebe04d0ff3f
+    m_Address: Assets/Game Systems/WalkingImmersion/System/FootParticleSystem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8989f6005bbbf1478fea82bc78a3806
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tile_Mono_05.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbdad1c2d8b77324bba9b579cff98b8d
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/PavementTiles_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd7ee2d2f09679e40a4c4de05acfc635
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Mud_Mono_02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddd723f23b81b544d9e17fa2cc82a82e
+    m_Address: Assets/Terrain/Sound data/dirt_desatured_down.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TerrainDataConfigs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de7e760217c5e7c42bf69b9bf512b78e
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tall_Grass_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de812b515a5c45d4fa030cf39e846e84
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/DirtRoad_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1013ccec1cfbd148851a49dc50298d8
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Undergrowth_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7132f9c36139aa4499ff5c5e80e8eaa
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/PavementTiles_Mono_04.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1909bfdb95d8984a88d2ec9fea2a698
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Mud_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f45ed230751183a4b85f0733ba40a5c0
+    m_Address: Assets/Game Systems/DialogueSystem/DialogueCanvas.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8d6118d7ce3cdd4a90f1528050b643e
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Mud_Mono_01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe550c1d301697d4cb10a20ab0aa4ee5
+    m_Address: Assets/Audio/Sound/Footsteps Mini Sound Pack/Tall_Grass_Mono_03.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5086f846b4b8a0b4dada17d69b1a919d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: eedf4b07a5952534495e6bb3ba818982, type: 2}
+    - {fileID: 11400000, guid: fe12e95dee9ea074e93bf77407ec2049, type: 2}

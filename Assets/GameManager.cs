@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
     private DayOfWeek _currentDayOfWeek = DayOfWeek.Monday;
-    public static DayOfWeek CurrentDayOfWeek { get { return _instance._currentDayOfWeek; } set { _instance._currentDayOfWeek = value; } }
+    public static DayOfWeek CurrentDayOfWeek => DayOfWeek.Monday;  // Temporarily locked to Monday for testing
+    //public static DayOfWeek CurrentDayOfWeek { get { return _instance._currentDayOfWeek; } set { _instance._currentDayOfWeek = value; } }
 
     [Header("Music")]
     [SerializeField] private MusicPlaylistSO MusicForGameplay;

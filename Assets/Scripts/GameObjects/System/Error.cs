@@ -2,10 +2,9 @@ using UnityEngine;
 
 public static class Error
 {
-    [System.Diagnostics.DebuggerNonUserCode]
-    public static bool Message(string message, Object context = null)
+    public static bool Message(string message)
     {
-        Debug.LogError(message, context);
+        Debug.LogError(message);
         return false;
     }
 }

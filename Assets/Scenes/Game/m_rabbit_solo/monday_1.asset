@@ -19,19 +19,20 @@ MonoBehaviour:
     _poseName: Ask
     ScreenPosition: 0
     text: "Przy kamieniu mia\u0142em skr\u0119ci\u0107 w..."
-    ExitPorts: []
-  - GUID: 3e0a3671-db1a-465f-9be6-0921b9d94d80
-    EditorPosition: {x: 473, y: 169}
-    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
-    _poseName: (none)
-    ScreenPosition: 0
-    text: 
-    ExitPorts: []
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
   - GUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
     EditorPosition: {x: 408, y: 169}
     _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
     _poseName: Thinking
     ScreenPosition: 0
     text: Lewo!
+    ExitPorts: []
+  TriggerNodes:
+  - GUID: fd3d0b9e-0389-484a-9714-9f147e99dc29
+    EditorPosition: {x: 768, y: 158}
+    _triggerComponent: {fileID: 0}
+    _triggerScriptableObject: {fileID: 0}
     ExitPorts: []
   StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3

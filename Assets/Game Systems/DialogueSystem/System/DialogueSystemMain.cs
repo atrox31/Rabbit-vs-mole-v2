@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using DialogueSystem.Nodes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -222,50 +223,96 @@ namespace DialogueSystem
                 yield break;
             }
 
-            _currentNode = _currentSequence.NodeMap[_currentSequence.StartNodeGUID];
-
+            // Get starting node (can be DialogueNode or TriggerNode)
+            object currentNode = _currentSequence.GetNodeByGUID(_currentSequence.StartNodeGUID);
+            if (currentNode == null)
+            {
+                Error.Message("DialogueSystemMain->PlayDialogueRoutine: StartNodeGUID points to non-existent node.");
+                Cleanup();
+                Destroy(gameObject);
+                yield break;
+            }
 
             // --- DIALOGUE PLAYBACK LOGIC ---
-            while (_currentNode != null)
+            while (currentNode != null)
             {
-                // Choice Node (if implemented)
-                if (_currentNode.ExitPorts.Count > 1)
+                // Handle TriggerNode
+                if (currentNode is TriggerNode triggerNode)
                 {
-                    //TODO: choice's
-                }
-                
-                StartLineForNode(_currentNode);
-
-                // slowly show new actor if new
-                if (!hasAppeared[_currentNode.ScreenPosition.i()])
-                {
-                    bool actorIsPresent = _currentNode._actor != null;
-                    yield return StartCoroutine(FadeActorEffect(_currentNode.ScreenPosition, actorIsPresent, true));
-                    hasAppeared[_currentNode.ScreenPosition.i()] = actorIsPresent;
-                }
-
-                // normal dialogue line show time
-                yield return StartCoroutine(TypeText(_currentNode.text, _currentNode.ScreenPosition));
-                yield return WaitForContinue();
-
-                if (_currentNode.ExitPorts.Count > 0)
-                {
-                    string nextGUID = _currentNode.ExitPorts[0].TargetNodeGUID;
-                    if (_currentSequence.NodeMap.ContainsKey(nextGUID))
+                    // Execute the trigger
+                    var trigger = triggerNode.GetTrigger();
+                    if (trigger != null)
                     {
-                        _currentNode = _currentSequence.NodeMap[nextGUID];
+                        trigger.Execute();
+                        Debug.Log($"Trigger executed: {trigger.GetType().Name}");
                     }
                     else
                     {
-                        // Error: Next node not found (badly connected graph)
-                        Error.Message($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
-                        _currentNode = null;
+                        Debug.LogWarning($"TriggerNode {triggerNode.GUID} has no valid trigger assigned.");
+                    }
+
+                    // Move to next node
+                    if (triggerNode.ExitPorts.Count > 0)
+                    {
+                        string nextGUID = triggerNode.ExitPorts[0].TargetNodeGUID;
+                        currentNode = _currentSequence.GetNodeByGUID(nextGUID);
+                        if (currentNode == null)
+                        {
+                            Error.Message($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
+                            currentNode = null;
+                        }
+                    }
+                    else
+                    {
+                        // End of graph: No exit ports
+                        currentNode = null;
+                    }
+                }
+                // Handle DialogueNode
+                else if (currentNode is DialogueNode dialogueNode)
+                {
+                    // Choice Node (if implemented)
+                    if (dialogueNode.ExitPorts.Count > 1)
+                    {
+                        //TODO: choice's
+                    }
+                    
+                    StartLineForNode(dialogueNode);
+
+                    // slowly show new actor if new
+                    if (!hasAppeared[dialogueNode.ScreenPosition.i()])
+                    {
+                        bool actorIsPresent = dialogueNode._actor != null;
+                        yield return StartCoroutine(FadeActorEffect(dialogueNode.ScreenPosition, actorIsPresent, true));
+                        hasAppeared[dialogueNode.ScreenPosition.i()] = actorIsPresent;
+                    }
+
+                    // normal dialogue line show time
+                    yield return StartCoroutine(TypeText(dialogueNode.text, dialogueNode.ScreenPosition));
+                    yield return WaitForContinue();
+
+                    if (dialogueNode.ExitPorts.Count > 0)
+                    {
+                        string nextGUID = dialogueNode.ExitPorts[0].TargetNodeGUID;
+                        currentNode = _currentSequence.GetNodeByGUID(nextGUID);
+                        if (currentNode == null)
+                        {
+                            // Error: Next node not found (badly connected graph)
+                            Error.Message($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
+                            currentNode = null;
+                        }
+                    }
+                    else
+                    {
+                        // End of graph: No exit ports
+                        currentNode = null;
                     }
                 }
                 else
                 {
-                    // End of graph: No exit ports
-                    _currentNode = null;
+                    // Unknown node type
+                    Error.Message($"DialogueSystemMain: Unknown node type: {currentNode.GetType().Name}. Ending dialogue.");
+                    currentNode = null;
                 }
             }
             /* OLD! only for backup

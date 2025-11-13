@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b6a5acdb2d73f4b85d47b2546c9758, type: 3}
+  m_Name: monday_2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DialogueSequence
+  Nodes:
+  - GUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+    EditorPosition: {x: 109, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Two arms behind head
+    ScreenPosition: 0
+    text: Oto i ona!
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 70acf6d0-131c-47b8-8918-ef93dba48ffd
+  - GUID: 70acf6d0-131c-47b8-8918-ef93dba48ffd
+    EditorPosition: {x: 448, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Stand
+    ScreenPosition: 0
+    text: Farma!
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: e52b8147-640f-4f7d-80cc-93ddd0324f90
+  - GUID: e52b8147-640f-4f7d-80cc-93ddd0324f90
+    EditorPosition: {x: 771, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: One arm behind back
+    ScreenPosition: 0
+    text: "Powinienem uda\u0107 si\u0119 do domku i zobaczy\u0107 czy zosta\u0142
+      dla mnie jaki\u015B list"
+    ExitPorts: []
+  StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3

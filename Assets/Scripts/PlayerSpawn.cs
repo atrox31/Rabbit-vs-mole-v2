@@ -22,6 +22,7 @@ public class PlayerSpawn : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(_playerSpawnRabbit.position);
         _playerInputManager = GetComponent<PlayerInputManager>();
         _playerInputManager.playerPrefab = _playerPrefab;
         if (_shouldSpawnRabbit) SpawnPlayer(PlayerType.Rabbit, _playerSpawnRabbit.position);

@@ -59,7 +59,7 @@ namespace GameObjects
         public void Collect()
         {
             _collectParticles.DetachAndPlay();
-            GameManager.GoldenCarrotPick();
+            Debug.LogWarning("TODO: golden carrot collect");
         }
     }
 }

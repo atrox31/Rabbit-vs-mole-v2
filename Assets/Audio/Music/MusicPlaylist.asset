@@ -14,12 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicPlaylistSO
   musicTracks:
   - {fileID: 8300000, guid: 2fecdd4de3a80024994af50c20c5c4b4, type: 3}
-  - {fileID: 8300000, guid: 2e843b4271dbdde42ae73d9ae832ea02, type: 3}
-  - {fileID: 8300000, guid: 12fbeae8496b324498909bafd8f4d877, type: 3}
-  - {fileID: 8300000, guid: ad2d857736ac3544d8d32aa8d74586f7, type: 3}
-  - {fileID: 8300000, guid: 3925bbfc010394e409861ef93af4bf72, type: 3}
-  - {fileID: 8300000, guid: 69b6046810d529b46a6e5a1c3360ae65, type: 3}
-  - {fileID: 8300000, guid: 90b7f19db5ae10544837e56b1ba48a2a, type: 3}
-  - {fileID: 8300000, guid: 68ce982bb002ff748b5f9197bd161136, type: 3}
-  - {fileID: 8300000, guid: 3cdbd0ec104fe194e88a47a4674b7305, type: 3}
+  - {fileID: 8300000, guid: a1a046c74d6fc414691f47b12f9a790e, type: 3}
   AvoidImmediateRepeat: 1

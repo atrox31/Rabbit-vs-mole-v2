@@ -35,7 +35,7 @@ namespace DialogueSystem.Editor
                 endPort.node != startPort.node).ToList();    // Not connecting to itself
         }
 
-        // Method to create a new, generic node for testing
+        // Method to create a new dialogue node
         public void CreateNode(Vector2 position)
         {
             var nodeData = new DialogueSystem.Nodes.DialogueNode(position);
@@ -45,8 +45,36 @@ namespace DialogueSystem.Editor
             AddElement(nodeView);
         }
 
+        // Method to create a new trigger node
+        public void CreateTriggerNode(Vector2 position)
+        {
+            var triggerNodeData = new DialogueSystem.Nodes.TriggerNode(position);
+            _editor.AddTriggerNodeToGraph(triggerNodeData);
+            var triggerNodeView = new TriggerNodeView(triggerNodeData, _editor);
+
+            AddElement(triggerNodeView);
+        }
+
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
+            // Check if the click was on a node by walking up the hierarchy from the target
+            VisualElement target = evt.target as VisualElement;
+            if (target != null)
+            {
+                VisualElement current = target;
+                while (current != null && current != this)
+                {
+                    if (current is DialogueNodeView || current is TriggerNodeView)
+                    {
+                        // Let the node handle its own menu - don't interfere
+                        // The node's BuildContextualMenu will be called automatically
+                        return;
+                    }
+                    current = current.parent;
+                }
+            }
+
+            // If not on a node, show the graph view menu
             // Reset the default menu before adding our custom items
             evt.menu.MenuItems().Clear();
 
@@ -57,15 +85,18 @@ namespace DialogueSystem.Editor
             Vector2 worldMousePosition = contentViewContainer.WorldToLocal(screenMousePosition);
 
             evt.menu.AppendAction(
-                "Create",
+                "Create Dialogue Node",
                 (action) => CreateNode(worldMousePosition),
                 DropdownMenuAction.AlwaysEnabled
             );
 
-            evt.menu.AppendSeparator();
+            evt.menu.AppendAction(
+                "Create Trigger Node",
+                (action) => CreateTriggerNode(worldMousePosition),
+                DropdownMenuAction.AlwaysEnabled
+            );
 
-            // default options
-            //base.BuildContextualMenu(evt);
+            evt.menu.AppendSeparator();
         }
         
         public void ClearGraph()

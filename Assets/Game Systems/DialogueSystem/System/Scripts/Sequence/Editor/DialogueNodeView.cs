@@ -24,6 +24,8 @@ namespace DialogueSystem.Editor
         private DropdownField _poseDropdown;
         private EnumField _sideField;
         private DialogueGraphEditor _editor;
+        private SerializedProperty _nodeProperty;
+        private bool _isLoading = true; // Flag to prevent SetDirty during loading
 
         public DialogueNodeView(DialogueNode nodeData, DialogueGraphEditor editor)
         {
@@ -38,6 +40,9 @@ namespace DialogueSystem.Editor
             CreateOutputPorts();
             SetupCustomDataFields();
             RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+            
+            // Mark loading as complete after a frame to allow initial geometry setup
+            schedule.Execute(() => { _isLoading = false; });
         }
 
         private void CreateInputPorts()
@@ -55,20 +60,24 @@ namespace DialogueSystem.Editor
             OutputPort.portName = "Next";
             outputContainer.Add(OutputPort);
 
-            //   TODO: przerobiæ na ró¿ne opcje z warunkami jakimiœ najlpeijej              /\
-            //                                trza bedzie zmieniæ ¿eby da³o siê ró¿ne robiæ ||
+            //   TODO: przerobiï¿½ na rï¿½ne opcje z warunkami jakimiï¿½ najlpeijej              /\
+            //                                trza bedzie zmieniï¿½ ï¿½eby daï¿½o siï¿½ rï¿½ne robiï¿½ ||
         }
 
         private void SetupCustomDataFields()
         {
-            // for pose property
-            SerializedProperty nodeSerializedProperty = _editor.GetNodeProperty(NodeData);
-            if (nodeSerializedProperty == null)
+            // Get SerializedProperty for this node
+            _nodeProperty = _editor.GetNodeProperty(NodeData);
+            if (_nodeProperty == null)
             {
                 Debug.LogError("Failed to find SerializedProperty for DialogueNode.");
                 return;
             }
-            SerializedProperty poseProperty = nodeSerializedProperty.FindProperty("_poseName");
+
+            // Update SerializedProperty before reading values
+            _nodeProperty.serializedObject.Update();
+
+            SerializedProperty poseProperty = _nodeProperty.FindProperty("_poseName");
             if (poseProperty == null)
             {
                 Debug.LogError("Failed to find _poseName property.");
@@ -76,20 +85,22 @@ namespace DialogueSystem.Editor
             }
 
             // 1. Actor Field (ObjectField for your Actor ScriptableObject)
+            SerializedProperty actorProperty = _nodeProperty.FindProperty("_actor");
             _actorField = new ObjectField("Actor:")
             {
-                objectType = typeof(Actor), // Assuming 'Actor' is a ScriptableObject/class
+                objectType = typeof(Actor),
                 allowSceneObjects = false,
-                value = NodeData._actor
+                value = actorProperty != null ? actorProperty.objectReferenceValue as Actor : NodeData._actor
             };
             _actorField.RegisterValueChangedCallback(evt =>
             {
+                if (actorProperty != null)
+                {
+                    actorProperty.objectReferenceValue = evt.newValue;
+                    actorProperty.serializedObject.ApplyModifiedProperties();
+                }
                 NodeData._actor = evt.newValue as Actor;
                 _editor.SetDirty();
-                if (_editor.CurrentGraphSerializedObject != null)
-                {
-                    _editor.CurrentGraphSerializedObject.Update(); // Pobierz najnowsze dane
-                }
                 UpdatePoseDropdownOptions();
             });
 
@@ -100,28 +111,37 @@ namespace DialogueSystem.Editor
 
             _poseDropdown.RegisterValueChangedCallback(evt =>
             {
-                // Aktualizujemy SerializedProperty (pole _poseName)
-                poseProperty.stringValue = evt.newValue;
-                poseProperty.serializedObject.ApplyModifiedProperties();
-
+                if (poseProperty != null)
+                {
+                    poseProperty.stringValue = evt.newValue;
+                    poseProperty.serializedObject.ApplyModifiedProperties();
+                }
+                NodeData._poseName = evt.newValue;
                 _editor.SetDirty();
             });
 
             // 3. Screen Position Field (EnumField for the Side enum)
-            _sideField = new EnumField("Screen Position:", ((ActorSideOnScreen)0).GetFirstValue()) // Default value or read from NodeData
+            SerializedProperty screenPositionProperty = _nodeProperty.FindProperty("ScreenPosition");
+            _sideField = new EnumField("Screen Position:", ((ActorSideOnScreen)0).GetFirstValue())
             {
-                value = NodeData.ScreenPosition
+                value = screenPositionProperty != null ? (ActorSideOnScreen)screenPositionProperty.enumValueIndex : NodeData.ScreenPosition
             };
             _sideField.RegisterValueChangedCallback(evt =>
             {
+                if (screenPositionProperty != null)
+                {
+                    screenPositionProperty.enumValueIndex = (int)(ActorSideOnScreen)evt.newValue;
+                    screenPositionProperty.serializedObject.ApplyModifiedProperties();
+                }
                 NodeData.ScreenPosition = (DialogueSystem.ActorSideOnScreen)evt.newValue;
                 _editor.SetDirty();
             });
 
             // 4. Dialogue Text Field
-            _dialogueText = new TextField("Dialogue:", -1,true, false, '\0')
+            SerializedProperty textProperty = _nodeProperty.FindProperty("text");
+            _dialogueText = new TextField("Dialogue:", -1, true, false, '\0')
             {
-                value = NodeData.text ?? "New dialogue text...",
+                value = textProperty != null ? textProperty.stringValue : (NodeData.text ?? "New dialogue text..."),
                 multiline = true
             };
             _dialogueText.style.minHeight = 80;
@@ -131,6 +151,11 @@ namespace DialogueSystem.Editor
 
             _dialogueText.RegisterValueChangedCallback(evt =>
             {
+                if (textProperty != null)
+                {
+                    textProperty.stringValue = evt.newValue;
+                    textProperty.serializedObject.ApplyModifiedProperties();
+                }
                 NodeData.text = evt.newValue;
                 _editor.SetDirty();
             });
@@ -168,8 +193,193 @@ namespace DialogueSystem.Editor
 
         private void OnGeometryChanged(GeometryChangedEvent evt)
         {
+            // Don't mark as dirty during initial loading
+            if (_isLoading) return;
+            
             // The new position is stored in the newRect of the GeometryChangedEvent
-            NodeData.EditorPosition = GetPosition().position;
+            Vector2 newPosition = GetPosition().position;
+            NodeData.EditorPosition = newPosition;
+            
+            // Update SerializedProperty for position
+            if (_nodeProperty != null)
+            {
+                SerializedProperty positionProperty = _nodeProperty.FindProperty("EditorPosition");
+                if (positionProperty != null)
+                {
+                    positionProperty.vector2Value = newPosition;
+                    positionProperty.serializedObject.ApplyModifiedProperties();
+                }
+            }
+            
+            _editor.SetDirty();
+        }
+
+        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
+        {
+            base.BuildContextualMenu(evt);
+            
+            evt.menu.AppendSeparator();
+            
+            // 1. Kopiuj zawartoÅ›Ä‡
+            evt.menu.AppendAction(
+                "Copy Content",
+                (action) => CopyNodeContent(),
+                DropdownMenuAction.AlwaysEnabled
+            );
+            
+            // 2. Wklej zawartoÅ›Ä‡
+            evt.menu.AppendAction(
+                "Paste Content",
+                (action) => PasteNodeContent(),
+                DropdownMenuAction.AlwaysEnabled
+            );
+            
+            evt.menu.AppendSeparator();
+            
+            // 3. Duplikuj
+            evt.menu.AppendAction(
+                "Duplicate",
+                (action) => DuplicateNode(),
+                DropdownMenuAction.AlwaysEnabled
+            );
+            
+            // 4. UsuÅ„
+            evt.menu.AppendAction(
+                "Delete",
+                (action) => DeleteNode(),
+                DropdownMenuAction.AlwaysEnabled
+            );
+        }
+
+        private static DialogueNode _copiedNodeContent = null;
+
+        private void CopyNodeContent()
+        {
+            // Create a copy of the node data (without GUID and position)
+            _copiedNodeContent = new DialogueNode(Vector2.zero)
+            {
+                _actor = NodeData._actor,
+                _poseName = NodeData._poseName,
+                ScreenPosition = NodeData.ScreenPosition,
+                text = NodeData.text
+            };
+            Debug.Log("Node content copied.");
+        }
+
+        private void PasteNodeContent()
+        {
+            if (_copiedNodeContent == null)
+            {
+                Debug.LogWarning("No node content to paste.");
+                return;
+            }
+
+            // Update SerializedProperty
+            if (_nodeProperty != null)
+            {
+                _nodeProperty.serializedObject.Update();
+                
+                SerializedProperty actorProperty = _nodeProperty.FindProperty("_actor");
+                if (actorProperty != null)
+                {
+                    actorProperty.objectReferenceValue = _copiedNodeContent._actor;
+                }
+                
+                SerializedProperty poseProperty = _nodeProperty.FindProperty("_poseName");
+                if (poseProperty != null)
+                {
+                    poseProperty.stringValue = _copiedNodeContent._poseName;
+                }
+                
+                SerializedProperty screenPositionProperty = _nodeProperty.FindProperty("ScreenPosition");
+                if (screenPositionProperty != null)
+                {
+                    screenPositionProperty.enumValueIndex = (int)_copiedNodeContent.ScreenPosition;
+                }
+                
+                SerializedProperty textProperty = _nodeProperty.FindProperty("text");
+                if (textProperty != null)
+                {
+                    textProperty.stringValue = _copiedNodeContent.text;
+                }
+                
+                _nodeProperty.serializedObject.ApplyModifiedProperties();
+            }
+
+            // Update NodeData
+            NodeData._actor = _copiedNodeContent._actor;
+            NodeData._poseName = _copiedNodeContent._poseName;
+            NodeData.ScreenPosition = _copiedNodeContent.ScreenPosition;
+            NodeData.text = _copiedNodeContent.text;
+
+            // Update UI fields
+            if (_actorField != null) _actorField.value = NodeData._actor;
+            if (_poseDropdown != null)
+            {
+                UpdatePoseDropdownOptions();
+                _poseDropdown.value = NodeData._poseName;
+            }
+            if (_sideField != null) _sideField.value = NodeData.ScreenPosition;
+            if (_dialogueText != null) _dialogueText.value = NodeData.text;
+
+            _editor.SetDirty();
+            Debug.Log("Node content pasted.");
+        }
+
+        private void DuplicateNode()
+        {
+            if (_editor == null || _editor.CurrentGraph == null) return;
+
+            // Get the graph view to add the new node
+            var graphView = _editor.GetGraphView();
+            if (graphView == null) return;
+
+            // Create new node with offset position
+            Vector2 newPosition = NodeData.EditorPosition + new Vector2(50, 50);
+            var newNodeData = new DialogueNode(newPosition)
+            {
+                _actor = NodeData._actor,
+                _poseName = NodeData._poseName,
+                ScreenPosition = NodeData.ScreenPosition,
+                text = NodeData.text
+            };
+
+            // Add to graph
+            _editor.CurrentGraph.Nodes.Add(newNodeData);
+            
+            // Create view and add to graph view
+            var newNodeView = new DialogueNodeView(newNodeData, _editor);
+            graphView.AddElement(newNodeView);
+
+            _editor.SetDirty();
+            Debug.Log("Node duplicated.");
+        }
+
+        private void DeleteNode()
+        {
+            if (_editor == null || _editor.CurrentGraph == null) return;
+
+            // Get the graph view
+            var graphView = _editor.GetGraphView();
+            if (graphView == null) return;
+
+            // Remove all edges connected to this node
+            var edgesToRemove = graphView.edges.Where(e => 
+                e.output.node == this || e.input.node == this).ToList();
+            
+            foreach (var edge in edgesToRemove)
+            {
+                graphView.RemoveElement(edge);
+            }
+
+            // Remove from graph data
+            _editor.CurrentGraph.Nodes.Remove(NodeData);
+
+            // Remove from view
+            graphView.RemoveElement(this);
+
+            _editor.SetDirty();
+            Debug.Log("Node deleted.");
         }
     }
 }

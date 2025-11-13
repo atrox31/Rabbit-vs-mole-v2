@@ -25,18 +25,4 @@ MonoBehaviour:
       gospodarza. A ja nim b\u0119d\u0119. Musz\u0119 tylko pozna\u0107 teren, posadzi\u0107
       pierwsz\u0105 marchewk\u0119 i udowodni\u0107, \u017Ce potrafi\u0119 to zrobi\u0107."
     ExitPorts: []
-  - GUID: 3e0a3671-db1a-465f-9be6-0921b9d94d80
-    EditorPosition: {x: 473, y: 169}
-    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
-    _poseName: 
-    ScreenPosition: 0
-    text: 
-    ExitPorts: []
-  - GUID: 4f496d69-979a-494e-ba48-0ed7a5546618
-    EditorPosition: {x: 472, y: 116}
-    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
-    _poseName: 
-    ScreenPosition: 0
-    text: 
-    ExitPorts: []
   StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3

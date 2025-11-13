@@ -1,8 +1,5 @@
-﻿namespace DialogueSystem
+﻿public enum PlayerType
 {
-    public enum PlayerType
-    {
-        Rabbit = 0,
-        Mole = 1
-    }
+    Rabbit = 0,
+    Mole = 1
 }

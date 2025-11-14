@@ -15,12 +15,16 @@ namespace DialogueSystem.Editor
         public DialogueSequence CurrentGraph => _currentGraph;
         private DialogueGraphView _graphView; // Now store the graph view instance
         private bool _isDirty = false;
+        private bool _isLoading = false; // Flag to prevent SetDirty during loading
         private SerializedObject _serializedObject;
         public SerializedObject CurrentGraphSerializedObject => _serializedObject;
 
 
         public new void SetDirty()
         {
+            // Don't set dirty flag during loading
+            if (_isLoading) return;
+            
             if (_isDirty) return;
 
             _isDirty = true;
@@ -31,6 +35,8 @@ namespace DialogueSystem.Editor
                 EditorUtility.SetDirty(_currentGraph);
             }
         }
+        
+        public bool IsLoading => _isLoading;
 
         [MenuItem("Tools/Dialogue System/Open Editor Window")]
         public static void Open()
@@ -121,6 +127,78 @@ namespace DialogueSystem.Editor
             return null;
         }
 
+        public SerializedProperty GetStartNodeProperty()
+        {
+            if (_currentGraph == null || _serializedObject == null) return null;
+
+            var startNodeProperty = _serializedObject.FindProperty("StartNode");
+            return startNodeProperty;
+        }
+
+        public SerializedProperty GetTriggerDataNodeProperty(TriggerDataNode nodeData)
+        {
+            if (_currentGraph == null || _serializedObject == null) return null;
+
+            var triggerDataNodesProperty = _serializedObject.FindProperty("TriggerDataNodes");
+
+            if (triggerDataNodesProperty == null)
+            {
+                Debug.LogError($"Property 'TriggerDataNodes' not found in DialogueSequence. Check the field name.");
+                return null;
+            }
+
+            if (!triggerDataNodesProperty.isArray)
+            {
+                Debug.LogError($"Property 'TriggerDataNodes' is not an array/list. Check the field type.");
+                return null;
+            }
+
+            for (int i = 0; i < triggerDataNodesProperty.arraySize; i++)
+            {
+                var element = triggerDataNodesProperty.GetArrayElementAtIndex(i);
+                if (element == null) continue;
+
+                SerializedProperty guidProperty = element.FindProperty("GUID");
+                if (guidProperty != null && guidProperty.stringValue == nodeData.GUID)
+                {
+                    return element;
+                }
+            }
+            return null;
+        }
+
+        public SerializedProperty GetLogicNodeProperty(LogicNode nodeData)
+        {
+            if (_currentGraph == null || _serializedObject == null) return null;
+
+            var logicNodesProperty = _serializedObject.FindProperty("LogicNodes");
+
+            if (logicNodesProperty == null)
+            {
+                Debug.LogError($"Property 'LogicNodes' not found in DialogueSequence. Check the field name.");
+                return null;
+            }
+
+            if (!logicNodesProperty.isArray)
+            {
+                Debug.LogError($"Property 'LogicNodes' is not an array/list. Check the field type.");
+                return null;
+            }
+
+            for (int i = 0; i < logicNodesProperty.arraySize; i++)
+            {
+                var element = logicNodesProperty.GetArrayElementAtIndex(i);
+                if (element == null) continue;
+
+                SerializedProperty guidProperty = element.FindProperty("GUID");
+                if (guidProperty != null && guidProperty.stringValue == nodeData.GUID)
+                {
+                    return element;
+                }
+            }
+            return null;
+        }
+
         public void CreateGUI()
         {
             // 1. Setup GraphView
@@ -130,11 +208,6 @@ namespace DialogueSystem.Editor
 
             // 2. Setup Toolbar
             var toolbar = new Toolbar();
-
-            // Button to create a new node at the center of the current view
-            Button newNodeButton = new Button(() => _graphView.CreateNode(new Vector2(100, 100)));
-            newNodeButton.text = "New Dialogue Node";
-            toolbar.Add(newNodeButton);
 
             // Save Button
             Button saveButton = new Button(SaveGraph) { text = "Save Graph" };
@@ -175,11 +248,24 @@ namespace DialogueSystem.Editor
 
         private void LoadGraph(DialogueSequence graph)
         {
+            _isLoading = true; // Set loading flag to prevent SetDirty calls
+            
             // Clear the existing elements from the view
             _graphView.ClearGraph();
 
             // Dictionary for fast access to node views by GUID (both types)
             var nodeViewMap = new Dictionary<string, Node>();
+
+            // Ensure StartNode exists
+            if (graph.StartNode == null)
+            {
+                graph.StartNode = new StartNode();
+            }
+
+            // Load StartNode
+            var startNodeView = new StartNodeView(graph.StartNode, this);
+            _graphView.AddElement(startNodeView);
+            nodeViewMap.Add(graph.StartNode.GUID, startNodeView);
 
             // Load DialogueNodes
             foreach (var nodeData in graph.Nodes)
@@ -195,6 +281,48 @@ namespace DialogueSystem.Editor
                 var triggerNodeView = new TriggerNodeView(triggerNodeData, this);
                 _graphView.AddElement(triggerNodeView);
                 nodeViewMap.Add(triggerNodeData.GUID, triggerNodeView);
+            }
+
+            // Load TriggerDataNodes
+            foreach (var triggerDataNodeData in graph.TriggerDataNodes)
+            {
+                var triggerDataNodeView = new TriggerDataNodeView(triggerDataNodeData, this);
+                _graphView.AddElement(triggerDataNodeView);
+                nodeViewMap.Add(triggerDataNodeData.GUID, triggerDataNodeView);
+            }
+
+            // Load LogicNodes
+            foreach (var logicNodeData in graph.LogicNodes)
+            {
+                var logicNodeView = new LogicNodeView(logicNodeData, this);
+                _graphView.AddElement(logicNodeView);
+                nodeViewMap.Add(logicNodeData.GUID, logicNodeView);
+            }
+
+            // Connect StartNode
+            if (graph.StartNode != null && graph.StartNode.ExitPorts != null)
+            {
+                foreach (var link in graph.StartNode.ExitPorts)
+                {
+                    if (nodeViewMap.TryGetValue(link.TargetNodeGUID, out var targetNode))
+                    {
+                        Port inputPort = null;
+                        if (targetNode is DialogueNodeView dialogueNodeView)
+                        {
+                            inputPort = dialogueNodeView.InputPort;
+                        }
+                        else if (targetNode is TriggerNodeView triggerNodeView)
+                        {
+                            inputPort = triggerNodeView.InputPort;
+                        }
+
+                        if (inputPort != null)
+                        {
+                            Edge edge = startNodeView.OutputPort.ConnectTo(inputPort);
+                            _graphView.AddElement(edge);
+                        }
+                    }
+                }
             }
 
             // Connect DialogueNodes
@@ -217,6 +345,10 @@ namespace DialogueSystem.Editor
                         else if (targetNode is TriggerNodeView triggerNodeView)
                         {
                             inputPort = triggerNodeView.InputPort;
+                        }
+                        else if (targetNode is LogicNodeView logicNodeView)
+                        {
+                            inputPort = logicNodeView.InputPort;
                         }
 
                         if (inputPort != null)
@@ -253,6 +385,10 @@ namespace DialogueSystem.Editor
                         {
                             inputPort = triggerNodeView.InputPort;
                         }
+                        else if (targetNode is LogicNodeView logicNodeView)
+                        {
+                            inputPort = logicNodeView.InputPort;
+                        }
 
                         if (inputPort != null)
                         {
@@ -266,7 +402,147 @@ namespace DialogueSystem.Editor
                     }
                 }
             }
+
+            // Connect LogicNodes
+            foreach (var logicNodeData in graph.LogicNodes)
+            {
+                if (!nodeViewMap.TryGetValue(logicNodeData.GUID, out var sourceNode)) continue;
+
+                LogicNodeView sourceNodeView = sourceNode as LogicNodeView;
+                if (sourceNodeView == null) continue;
+
+                // Connect True output
+                if (logicNodeData.ExitPortsTrue != null)
+                {
+                    foreach (var link in logicNodeData.ExitPortsTrue)
+                    {
+                        if (nodeViewMap.TryGetValue(link.TargetNodeGUID, out var targetNode))
+                        {
+                            Port inputPort = null;
+                            if (targetNode is DialogueNodeView dialogueNodeView)
+                            {
+                                inputPort = dialogueNodeView.InputPort;
+                            }
+                            else if (targetNode is TriggerNodeView triggerNodeView)
+                            {
+                                inputPort = triggerNodeView.InputPort;
+                            }
+                            else if (targetNode is LogicNodeView logicNodeView)
+                            {
+                                inputPort = logicNodeView.InputPort;
+                            }
+
+                            if (inputPort != null)
+                            {
+                                Edge edge = sourceNodeView.OutputPortTrue.ConnectTo(inputPort);
+                                _graphView.AddElement(edge);
+                            }
+                        }
+                    }
+                }
+
+                // Connect False output
+                if (logicNodeData.ExitPortsFalse != null)
+                {
+                    foreach (var link in logicNodeData.ExitPortsFalse)
+                    {
+                        if (nodeViewMap.TryGetValue(link.TargetNodeGUID, out var targetNode))
+                        {
+                            Port inputPort = null;
+                            if (targetNode is DialogueNodeView dialogueNodeView)
+                            {
+                                inputPort = dialogueNodeView.InputPort;
+                            }
+                            else if (targetNode is TriggerNodeView triggerNodeView)
+                            {
+                                inputPort = triggerNodeView.InputPort;
+                            }
+                            else if (targetNode is LogicNodeView logicNodeView)
+                            {
+                                inputPort = logicNodeView.InputPort;
+                            }
+
+                            if (inputPort != null)
+                            {
+                                Edge edge = sourceNodeView.OutputPortFalse.ConnectTo(inputPort);
+                                _graphView.AddElement(edge);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Connect TriggerDataNodes to TriggerNodes (data connections)
+            foreach (var triggerNodeData in graph.TriggerNodes)
+            {
+                if (!nodeViewMap.TryGetValue(triggerNodeData.GUID, out var targetNode)) continue;
+
+                TriggerNodeView targetNodeView = targetNode as TriggerNodeView;
+                if (targetNodeView == null) continue;
+
+                if (triggerNodeData.ArgumentDataConnections != null)
+                {
+                    foreach (var connection in triggerNodeData.ArgumentDataConnections)
+                    {
+                        if (!nodeViewMap.TryGetValue(connection.SourceDataNodeGUID, out var sourceNode)) continue;
+
+                        TriggerDataNodeView sourceNodeView = sourceNode as TriggerDataNodeView;
+                        if (sourceNodeView == null) continue;
+
+                        // Find the output port on source node
+                        if (sourceNodeView.OutputPorts.TryGetValue(connection.SourcePortName, out var outputPort))
+                        {
+                            // Find the input port on target node
+                            if (targetNodeView.ArgumentInputPorts.TryGetValue(connection.TargetFieldName, out var inputPort))
+                            {
+                                Edge edge = outputPort.ConnectTo(inputPort);
+                                _graphView.AddElement(edge);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Connect TriggerDataNodes to LogicNodes (Condition input connections)
+            foreach (var logicNodeData in graph.LogicNodes)
+            {
+                if (logicNodeData.ConditionDataConnection != null)
+                {
+                    if (!nodeViewMap.TryGetValue(logicNodeData.GUID, out var targetNode)) continue;
+
+                    LogicNodeView targetNodeView = targetNode as LogicNodeView;
+                    if (targetNodeView == null) continue;
+
+                    if (!nodeViewMap.TryGetValue(logicNodeData.ConditionDataConnection.SourceDataNodeGUID, out var sourceNode)) continue;
+
+                    TriggerDataNodeView sourceNodeView = sourceNode as TriggerDataNodeView;
+                    if (sourceNodeView == null) continue;
+
+                    // Find the output port on source node
+                    if (sourceNodeView.OutputPorts.TryGetValue(logicNodeData.ConditionDataConnection.SourcePortName, out var outputPort))
+                    {
+                        // Connect to Condition input port
+                        Edge edge = outputPort.ConnectTo(targetNodeView.ConditionInputPort);
+                        _graphView.AddElement(edge);
+                    }
+                }
+            }
+            
+            // Keep loading flag true for a bit longer to catch late callbacks
+            // Reset dirty flag immediately since we just loaded
             _isDirty = false;
+            
+            // Clear loading flag after a delay to allow all async callbacks to complete
+            EditorApplication.delayCall += () =>
+            {
+                _isLoading = false;
+                // Reset dirty flag again in case any late callbacks set it
+                if (_isDirty)
+                {
+                    _isDirty = false;
+                    UpdateTitle();
+                }
+            };
         }
 
         private void SaveGraph()
@@ -450,18 +726,174 @@ namespace DialogueSystem.Editor
             _currentGraph.TriggerNodes.Clear();
             _currentGraph.TriggerNodes.AddRange(currentTriggerNodeViews.Select(nv => nv.NodeData));
 
+            // Get all trigger data node views currently in the graph
+            var currentTriggerDataNodeViews = _graphView.nodes.ToList()
+                .OfType<TriggerDataNodeView>()
+                .ToList();
+            var currentTriggerDataNodeGuids = new HashSet<string>(
+                currentTriggerDataNodeViews.Select(nv => nv.NodeData.GUID));
+
+            // Sync the TriggerDataNodes list in SerializedProperty
+            var triggerDataNodesProperty = _serializedObject.FindProperty("TriggerDataNodes");
+            if (triggerDataNodesProperty != null && triggerDataNodesProperty.isArray)
+            {
+                // Remove trigger data nodes that are no longer in the view
+                for (int i = triggerDataNodesProperty.arraySize - 1; i >= 0; i--)
+                {
+                    var nodeProperty = triggerDataNodesProperty.GetArrayElementAtIndex(i);
+                    if (nodeProperty == null) continue;
+
+                    SerializedProperty guidProperty = nodeProperty.FindProperty("GUID");
+                    if (guidProperty != null && !currentTriggerDataNodeGuids.Contains(guidProperty.stringValue))
+                    {
+                        triggerDataNodesProperty.DeleteArrayElementAtIndex(i);
+                    }
+                }
+
+                // Update existing trigger data nodes and add new ones
+                foreach (var triggerDataNodeView in currentTriggerDataNodeViews)
+                {
+                    SerializedProperty nodeProperty = null;
+
+                    for (int i = 0; i < triggerDataNodesProperty.arraySize; i++)
+                    {
+                        var element = triggerDataNodesProperty.GetArrayElementAtIndex(i);
+                        if (element == null) continue;
+
+                        SerializedProperty guidProperty = element.FindProperty("GUID");
+                        if (guidProperty != null && guidProperty.stringValue == triggerDataNodeView.NodeData.GUID)
+                        {
+                            nodeProperty = element;
+                            break;
+                        }
+                    }
+
+                    if (nodeProperty == null)
+                    {
+                        triggerDataNodesProperty.arraySize++;
+                        nodeProperty = triggerDataNodesProperty.GetArrayElementAtIndex(triggerDataNodesProperty.arraySize - 1);
+                        SerializedProperty newGuidProperty = nodeProperty.FindProperty("GUID");
+                        if (newGuidProperty != null)
+                        {
+                            newGuidProperty.stringValue = triggerDataNodeView.NodeData.GUID;
+                        }
+                    }
+
+                    if (nodeProperty != null)
+                    {
+                        SerializedProperty positionProperty = nodeProperty.FindProperty("EditorPosition");
+                        if (positionProperty != null)
+                        {
+                            positionProperty.vector2Value = triggerDataNodeView.NodeData.EditorPosition;
+                        }
+                    }
+                }
+            }
+
+            // Apply all property changes
+            _serializedObject.ApplyModifiedProperties();
+
+            // Update the actual TriggerDataNodes list
+            _currentGraph.TriggerDataNodes.Clear();
+            _currentGraph.TriggerDataNodes.AddRange(currentTriggerDataNodeViews.Select(nv => nv.NodeData));
+
+            // Get all logic node views currently in the graph
+            var currentLogicNodeViews = _graphView.nodes.ToList()
+                .OfType<LogicNodeView>()
+                .ToList();
+            var currentLogicNodeGuids = new HashSet<string>(
+                currentLogicNodeViews.Select(nv => nv.NodeData.GUID));
+
+            // Sync the LogicNodes list in SerializedProperty
+            var logicNodesProperty = _serializedObject.FindProperty("LogicNodes");
+            if (logicNodesProperty != null && logicNodesProperty.isArray)
+            {
+                // Remove logic nodes that are no longer in the view
+                for (int i = logicNodesProperty.arraySize - 1; i >= 0; i--)
+                {
+                    var nodeProperty = logicNodesProperty.GetArrayElementAtIndex(i);
+                    if (nodeProperty == null) continue;
+
+                    SerializedProperty guidProperty = nodeProperty.FindProperty("GUID");
+                    if (guidProperty != null && !currentLogicNodeGuids.Contains(guidProperty.stringValue))
+                    {
+                        logicNodesProperty.DeleteArrayElementAtIndex(i);
+                    }
+                }
+
+                // Update existing logic nodes and add new ones
+                foreach (var logicNodeView in currentLogicNodeViews)
+                {
+                    SerializedProperty nodeProperty = null;
+
+                    for (int i = 0; i < logicNodesProperty.arraySize; i++)
+                    {
+                        var element = logicNodesProperty.GetArrayElementAtIndex(i);
+                        if (element == null) continue;
+
+                        SerializedProperty guidProperty = element.FindProperty("GUID");
+                        if (guidProperty != null && guidProperty.stringValue == logicNodeView.NodeData.GUID)
+                        {
+                            nodeProperty = element;
+                            break;
+                        }
+                    }
+
+                    if (nodeProperty == null)
+                    {
+                        logicNodesProperty.arraySize++;
+                        nodeProperty = logicNodesProperty.GetArrayElementAtIndex(logicNodesProperty.arraySize - 1);
+                        SerializedProperty newGuidProperty = nodeProperty.FindProperty("GUID");
+                        if (newGuidProperty != null)
+                        {
+                            newGuidProperty.stringValue = logicNodeView.NodeData.GUID;
+                        }
+                    }
+
+                    if (nodeProperty != null)
+                    {
+                        SerializedProperty positionProperty = nodeProperty.FindProperty("EditorPosition");
+                        if (positionProperty != null)
+                        {
+                            positionProperty.vector2Value = logicNodeView.NodeData.EditorPosition;
+                        }
+
+                        SerializedProperty conditionProperty = nodeProperty.FindProperty("Condition");
+                        if (conditionProperty != null)
+                        {
+                            conditionProperty.boolValue = logicNodeView.NodeData.Condition;
+                        }
+                    }
+                }
+            }
+
+            // Apply all property changes
+            _serializedObject.ApplyModifiedProperties();
+
+            // Update the actual LogicNodes list
+            _currentGraph.LogicNodes.Clear();
+            _currentGraph.LogicNodes.AddRange(currentLogicNodeViews.Select(nv => nv.NodeData));
+
             // Clear all existing connections in the ScriptableObject data 
             // to save only the current ones.
+            if (_currentGraph.StartNode != null)
+            {
+                _currentGraph.StartNode.ExitPorts.Clear();
+            }
             _currentGraph.Nodes.ForEach(node => node.ExitPorts.Clear());
             _currentGraph.TriggerNodes.ForEach(node => node.ExitPorts.Clear());
+            _currentGraph.TriggerNodes.ForEach(node => node.ArgumentDataConnections.Clear());
+            _currentGraph.LogicNodes.ForEach(node => node.ExitPortsTrue.Clear());
+            _currentGraph.LogicNodes.ForEach(node => node.ExitPortsFalse.Clear());
+            _currentGraph.LogicNodes.ForEach(node => node.ConditionDataConnection = null);
 
             // Save Edges (Connections)
             var edges = _graphView.edges.ToList(); 
 
             foreach (var edge in edges)
             {
-                // Handle DialogueNode -> any node
-                if (edge.output.node is DialogueNodeView sourceDialogueNodeView)
+                // Handle StartNode -> any node
+                if (edge.output.node is StartNodeView sourceStartNodeView)
                 {
                     string targetGUID = null;
                     if (edge.input.node is DialogueNodeView targetDialogueNodeView)
@@ -471,6 +903,33 @@ namespace DialogueSystem.Editor
                     else if (edge.input.node is TriggerNodeView targetTriggerNodeView)
                     {
                         targetGUID = targetTriggerNodeView.NodeData.GUID;
+                    }
+                    else if (edge.input.node is LogicNodeView targetLogicNodeView)
+                    {
+                        targetGUID = targetLogicNodeView.NodeData.GUID;
+                    }
+
+                    if (targetGUID != null)
+                    {
+                        var link = new NodeLink { TargetNodeGUID = targetGUID };
+                        sourceStartNodeView.NodeData.ExitPorts.Add(link);
+                    }
+                }
+                // Handle DialogueNode -> any node
+                else if (edge.output.node is DialogueNodeView sourceDialogueNodeView)
+                {
+                    string targetGUID = null;
+                    if (edge.input.node is DialogueNodeView targetDialogueNodeView)
+                    {
+                        targetGUID = targetDialogueNodeView.NodeData.GUID;
+                    }
+                    else if (edge.input.node is TriggerNodeView targetTriggerNodeView)
+                    {
+                        targetGUID = targetTriggerNodeView.NodeData.GUID;
+                    }
+                    else if (edge.input.node is LogicNodeView targetLogicNodeView)
+                    {
+                        targetGUID = targetLogicNodeView.NodeData.GUID;
                     }
 
                     if (targetGUID != null)
@@ -491,11 +950,73 @@ namespace DialogueSystem.Editor
                     {
                         targetGUID = targetTriggerNodeView.NodeData.GUID;
                     }
+                    else if (edge.input.node is LogicNodeView targetLogicNodeView)
+                    {
+                        targetGUID = targetLogicNodeView.NodeData.GUID;
+                    }
 
                     if (targetGUID != null)
                     {
                         var link = new NodeLink { TargetNodeGUID = targetGUID };
                         sourceTriggerNodeView.NodeData.ExitPorts.Add(link);
+                    }
+                }
+                // Handle LogicNode -> any node (True and False outputs)
+                else if (edge.output.node is LogicNodeView sourceLogicNodeView)
+                {
+                    string targetGUID = null;
+                    if (edge.input.node is DialogueNodeView targetDialogueNodeView)
+                    {
+                        targetGUID = targetDialogueNodeView.NodeData.GUID;
+                    }
+                    else if (edge.input.node is TriggerNodeView targetTriggerNodeView)
+                    {
+                        targetGUID = targetTriggerNodeView.NodeData.GUID;
+                    }
+                    else if (edge.input.node is LogicNodeView targetLogicNodeView)
+                    {
+                        targetGUID = targetLogicNodeView.NodeData.GUID;
+                    }
+
+                    if (targetGUID != null)
+                    {
+                        var link = new NodeLink { TargetNodeGUID = targetGUID };
+                        // Determine which output port (True or False)
+                        if (edge.output == sourceLogicNodeView.OutputPortTrue)
+                        {
+                            sourceLogicNodeView.NodeData.ExitPortsTrue.Add(link);
+                        }
+                        else if (edge.output == sourceLogicNodeView.OutputPortFalse)
+                        {
+                            sourceLogicNodeView.NodeData.ExitPortsFalse.Add(link);
+                        }
+                    }
+                }
+                // Handle TriggerDataNode -> TriggerNode (data connections)
+                else if (edge.output.node is TriggerDataNodeView sourceTriggerDataNodeView)
+                {
+                    if (edge.input.node is TriggerNodeView targetTriggerNodeView)
+                    {
+                        // This is a data connection from TriggerDataNode to TriggerNode argument
+                        var connection = new ArgumentDataConnection
+                        {
+                            SourceDataNodeGUID = sourceTriggerDataNodeView.NodeData.GUID,
+                            SourcePortName = edge.output.portName,
+                            TargetFieldName = edge.input.portName // Port name should match field name
+                        };
+                        targetTriggerNodeView.NodeData.ArgumentDataConnections.Add(connection);
+                    }
+                    else if (edge.input.node is LogicNodeView targetLogicNodeView && 
+                             edge.input == targetLogicNodeView.ConditionInputPort)
+                    {
+                        // This is a data connection from TriggerDataNode to LogicNode Condition input
+                        var connection = new ArgumentDataConnection
+                        {
+                            SourceDataNodeGUID = sourceTriggerDataNodeView.NodeData.GUID,
+                            SourcePortName = edge.output.portName,
+                            TargetFieldName = "Condition" // Condition field name
+                        };
+                        targetLogicNodeView.NodeData.ConditionDataConnection = connection;
                     }
                 }
             }
@@ -569,6 +1090,42 @@ namespace DialogueSystem.Editor
             {
                 _currentGraph.StartNodeGUID = nodeData.GUID;
             }
+
+            if (_serializedObject != null)
+            {
+                _serializedObject.Update();
+            }
+
+            SetDirty();
+        }
+
+        public void AddTriggerDataNodeToGraph(TriggerDataNode nodeData)
+        {
+            if (_currentGraph == null)
+            {
+                Debug.LogError("Cannot add trigger data node: No DialogueSequence asset is currently selected.");
+                return;
+            }
+            // Add the new data to the list in the ScriptableObject
+            _currentGraph.TriggerDataNodes.Add(nodeData);
+
+            if (_serializedObject != null)
+            {
+                _serializedObject.Update();
+            }
+
+            SetDirty();
+        }
+
+        public void AddLogicNodeToGraph(LogicNode nodeData)
+        {
+            if (_currentGraph == null)
+            {
+                Debug.LogError("Cannot add logic node: No DialogueSequence asset is currently selected.");
+                return;
+            }
+            // Add the new data to the list in the ScriptableObject
+            _currentGraph.LogicNodes.Add(nodeData);
 
             if (_serializedObject != null)
             {

@@ -344,8 +344,8 @@ namespace DialogueSystem.Editor
                 text = NodeData.text
             };
 
-            // Add to graph
-            _editor.CurrentGraph.Nodes.Add(newNodeData);
+            // Add to graph using the editor method (updates SerializedObject)
+            _editor.AddNodeToGraph(newNodeData);
             
             // Create view and add to graph view
             var newNodeView = new DialogueNodeView(newNodeData, _editor);

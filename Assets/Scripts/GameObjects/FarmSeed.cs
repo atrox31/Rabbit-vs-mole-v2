@@ -17,7 +17,6 @@ namespace GameObjects
         private const float _randomPositionRange = .2f;
         private bool _isShrinking = false;
 
-
         private void Awake()
         {
             Transform child = transform.Find("Model")?.transform;
@@ -31,8 +30,6 @@ namespace GameObjects
             }
         }
 
-
-
         void Start()
         {
             float random_x_move = Random.Range(-_randomPositionRange, _randomPositionRange);
@@ -43,6 +40,7 @@ namespace GameObjects
                 _undergroundPosition.localPosition.y,
                 random_y_move
             );
+
             _endPosition = new Vector3(
                 random_x_move,
                 _upgroundPosition.localPosition.y,

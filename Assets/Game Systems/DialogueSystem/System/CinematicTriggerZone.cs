@@ -12,7 +12,7 @@ namespace DialogueSystem
             if (other.CompareTag("Player"))
             {
                 DialogueSystemMain.CreateDialogue(dialogueSequence);
-                if(!triggerOnce)
+                if(triggerOnce)
                     gameObject.SetActive(false);
             }
         }

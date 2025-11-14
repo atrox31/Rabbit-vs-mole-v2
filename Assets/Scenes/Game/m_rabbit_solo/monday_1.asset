@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: monday_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DialogueSequence
   Nodes:
+  - GUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
+    EditorPosition: {x: 408, y: 169}
+    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
+    _poseName: Thinking
+    ScreenPosition: 0
+    text: Lewo!
+    ExitPorts: []
   - GUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
     EditorPosition: {x: 109, y: 169}
     _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
@@ -22,17 +29,16 @@ MonoBehaviour:
     ExitPorts:
     - ChoiceText: 
       TargetNodeGUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
-  - GUID: 92a32f7f-adfa-40b7-8db2-0f533127bf97
-    EditorPosition: {x: 408, y: 169}
-    _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
-    _poseName: Thinking
-    ScreenPosition: 0
-    text: Lewo!
-    ExitPorts: []
-  TriggerNodes:
-  - GUID: fd3d0b9e-0389-484a-9714-9f147e99dc29
-    EditorPosition: {x: 768, y: 158}
-    _triggerComponent: {fileID: 0}
-    _triggerScriptableObject: {fileID: 0}
-    ExitPorts: []
-  StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+  TriggerNodes: []
+  TriggerDataNodes: []
+  LogicNodes: []
+  StartNode:
+    GUID: START_NODE
+    EditorPosition: {x: 50, y: 50}
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+  GameObjectReferences: []
+  references:
+    version: 2
+    RefIds: []

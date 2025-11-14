@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DialogueSystem;
@@ -74,7 +73,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Vector2 _moveAmount = _moveAction.ReadValue<Vector2>();
+        if (IsBusy)
+        {
+            _speedController.HandleAcceleration(false);
+            return;
+        }
+
+        var _moveAmount = _moveAction.ReadValue<Vector2>();
         var isMoving = _moveAmount != Vector2.zero;
 
         if (!IsBusy && _interactAction.IsPressed())
@@ -88,14 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_speedController.HaveAnySpeed)
-        {
-            UpdateAnimator(ApplyMovement());
-        }
-        else
-        {
-            UpdateAnimator(false);
-        }
+        UpdateAnimator(_speedController.HaveAnySpeed && ApplyMovement());
     }
 
     private void HandleOnInteract()
@@ -128,17 +126,16 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
-    private void UpdateAnimator(bool animIsWalking)
+    private void UpdateAnimator(bool isWalking)
     {
-        bool currentIsWalking = animIsWalking;
-
-        if (currentIsWalking != _isWalking)
+        if (isWalking != _isWalking)
         {
-            _animator.SetBool(IsWalkingHash, currentIsWalking);
-            _animator.SetTrigger(currentIsWalking ? StartWalkHash : StopWalkiHash);
+            _animator.SetBool(IsWalkingHash, isWalking);
+            _animator.SetTrigger(isWalking ? StartWalkHash : StopWalkiHash);
 
         }
-        _isWalking = currentIsWalking;
+
+        _isWalking = isWalking;
     }
 
     private bool ApplyMovement()

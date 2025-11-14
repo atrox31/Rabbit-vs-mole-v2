@@ -39,4 +39,16 @@ MonoBehaviour:
     text: "Powinienem uda\u0107 si\u0119 do domku i zobaczy\u0107 czy zosta\u0142
       dla mnie jaki\u015B list"
     ExitPorts: []
-  StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+  TriggerNodes: []
+  TriggerDataNodes: []
+  LogicNodes: []
+  StartNode:
+    GUID: START_NODE
+    EditorPosition: {x: 50, y: 50}
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+  GameObjectReferences: []
+  references:
+    version: 2
+    RefIds: []

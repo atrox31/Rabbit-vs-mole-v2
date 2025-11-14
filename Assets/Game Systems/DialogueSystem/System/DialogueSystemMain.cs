@@ -215,19 +215,26 @@ namespace DialogueSystem
             Debug.Log("Dialogue sequence started.");
             bool[] hasAppeared = new bool[Enum.GetValues(typeof(ActorSideOnScreen)).Length];
 
-            if (string.IsNullOrEmpty(_currentSequence.StartNodeGUID) || !_currentSequence.NodeMap.ContainsKey(_currentSequence.StartNodeGUID))
+            // Always start from StartNode
+            if (_currentSequence.StartNode == null)
             {
-                Error.Message("DialogueSystemMain->PlayDialogueRoutine: StartNodeGUID is missing or invalid.");
+                Debug.LogError("DialogueSystemMain->PlayDialogueRoutine: StartNode is missing.");
                 Cleanup();
                 Destroy(gameObject);
                 yield break;
             }
 
-            // Get starting node (can be DialogueNode or TriggerNode)
-            object currentNode = _currentSequence.GetNodeByGUID(_currentSequence.StartNodeGUID);
+            // Get starting node from StartNode's first exit port
+            object currentNode = null;
+            if (_currentSequence.StartNode.ExitPorts != null && _currentSequence.StartNode.ExitPorts.Count > 0)
+            {
+                string firstNodeGUID = _currentSequence.StartNode.ExitPorts[0].TargetNodeGUID;
+                currentNode = _currentSequence.GetNodeByGUID(firstNodeGUID);
+            }
+
             if (currentNode == null)
             {
-                Error.Message("DialogueSystemMain->PlayDialogueRoutine: StartNodeGUID points to non-existent node.");
+                Debug.LogWarning("DialogueSystemMain->PlayDialogueRoutine: StartNode has no connections. Ending dialogue.");
                 Cleanup();
                 Destroy(gameObject);
                 yield break;
@@ -239,8 +246,8 @@ namespace DialogueSystem
                 // Handle TriggerNode
                 if (currentNode is TriggerNode triggerNode)
                 {
-                    // Execute the trigger
-                    var trigger = triggerNode.GetTrigger();
+                    // Execute the trigger (pass sequence to resolve data connections)
+                    var trigger = triggerNode.GetTrigger(_currentSequence);
                     if (trigger != null)
                     {
                         trigger.Execute();
@@ -258,13 +265,74 @@ namespace DialogueSystem
                         currentNode = _currentSequence.GetNodeByGUID(nextGUID);
                         if (currentNode == null)
                         {
-                            Error.Message($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
+                            Debug.LogError($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
                             currentNode = null;
                         }
                     }
                     else
                     {
                         // End of graph: No exit ports
+                        currentNode = null;
+                    }
+                }
+                // Handle LogicNode
+                else if (currentNode is LogicNode logicNode)
+                {
+                    // Resolve condition value
+                    bool conditionValue = logicNode.Condition;
+
+                    // Check if condition is connected to a TriggerDataNode
+                    if (logicNode.ConditionDataConnection != null)
+                    {
+                        var dataNode = _currentSequence.GetTriggerDataNodeByGUID(logicNode.ConditionDataConnection.SourceDataNodeGUID);
+                        if (dataNode != null)
+                        {
+                            var value = dataNode.GetOutputValue(logicNode.ConditionDataConnection.SourcePortName, _currentSequence);
+                            if (value != null)
+                            {
+                                try
+                                {
+                                    // Convert value to bool
+                                    if (value is bool boolValue)
+                                    {
+                                        conditionValue = boolValue;
+                                    }
+                                    else
+                                    {
+                                        conditionValue = Convert.ToBoolean(value);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.LogWarning($"DialogueSystemMain: Failed to convert condition value to bool: {ex.Message}. Using default value: {logicNode.Condition}");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"DialogueSystemMain: LogicNode {logicNode.GUID} has ConditionDataConnection but source node not found. Using default value: {logicNode.Condition}");
+                        }
+                    }
+
+                    Debug.Log($"LogicNode {logicNode.GUID} evaluated condition: {conditionValue}");
+
+                    // Route to appropriate output based on condition
+                    List<NodeLink> exitPorts = conditionValue ? logicNode.ExitPortsTrue : logicNode.ExitPortsFalse;
+                    
+                    if (exitPorts != null && exitPorts.Count > 0)
+                    {
+                        string nextGUID = exitPorts[0].TargetNodeGUID;
+                        currentNode = _currentSequence.GetNodeByGUID(nextGUID);
+                        if (currentNode == null)
+                        {
+                            Debug.LogError($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID} from LogicNode {(conditionValue ? "True" : "False")} output. Ending dialogue.");
+                            currentNode = null;
+                        }
+                    }
+                    else
+                    {
+                        // No exit port for this condition branch
+                        Debug.LogWarning($"DialogueSystemMain: LogicNode {logicNode.GUID} has no exit port for {(conditionValue ? "True" : "False")} condition. Ending dialogue.");
                         currentNode = null;
                     }
                 }
@@ -298,7 +366,7 @@ namespace DialogueSystem
                         if (currentNode == null)
                         {
                             // Error: Next node not found (badly connected graph)
-                            Error.Message($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
+                            Debug.LogError($"DialogueSystemMain: Cannot find next node with GUID: {nextGUID}. Ending dialogue.");
                             currentNode = null;
                         }
                     }
@@ -311,32 +379,11 @@ namespace DialogueSystem
                 else
                 {
                     // Unknown node type
-                    Error.Message($"DialogueSystemMain: Unknown node type: {currentNode.GetType().Name}. Ending dialogue.");
+                    Debug.LogError($"DialogueSystemMain: Unknown node type: {currentNode.GetType().Name}. Ending dialogue.");
                     currentNode = null;
                 }
             }
-            /* OLD! only for backup
-            foreach (var dialogueLine in _currentSequence.dialogueLines)
-            {
-                //Debug.Log($"dialogueLine: {dialogueLine.ToString()}");
-                SetActiveActor(dialogueLine.ScreenPosition, dialogueLine._actor);
-                SetClip(dialogueLine._actor, dialogueLine._poseName);
-                SetActiveTextRenderer(dialogueLine.ScreenPosition); 
-                SetActiveTextBackground(dialogueLine.ScreenPosition);
-
-                if (!hasAppeared[dialogueLine.ScreenPosition.i()])
-                {
-                    bool actorIsPresent = dialogueLine._actor != null;
-                    yield return StartCoroutine(FadeActorEffect(dialogueLine.ScreenPosition, actorIsPresent, true));
-                    hasAppeared[dialogueLine.ScreenPosition.i()] = true;
-                }
-
-                yield return StartCoroutine(TypeText(dialogueLine.text, dialogueLine.ScreenPosition));
-                
-                // wait for key pressed
-                yield return WaitForContinue();
-            }
-            */
+            
             // fade out
             foreach (ActorSideOnScreen side in Enum.GetValues(typeof(ActorSideOnScreen)))
             {

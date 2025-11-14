@@ -846,7 +846,8 @@ public class AudioManager : MonoBehaviour
     public static void AudioLisnerDelelete()
     {
         _instance._audioLisner = null;
-        _instance._selfAudioLisner.enabled = true;
+        if(_instance._selfAudioLisner != null)
+            _instance._selfAudioLisner.enabled = true;
     }
 }
 #endregion

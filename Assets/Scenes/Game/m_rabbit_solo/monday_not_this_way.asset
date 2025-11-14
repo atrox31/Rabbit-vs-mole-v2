@@ -14,10 +14,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DialogueSequence
   Nodes:
   - GUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
-    EditorPosition: {x: 109, y: 169}
+    EditorPosition: {x: 395, y: -26}
     _actor: {fileID: 11400000, guid: 9b68ea68d4c717f4f9484ce56d128c26, type: 2}
     _poseName: Stop
     ScreenPosition: 0
     text: "O nie! Nie t\u0119dy droga..."
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 2355ddc5-6a24-4f50-8363-13b9186c992c
+  TriggerNodes:
+  - GUID: 32276a24-58c8-4a31-a6cd-049ad84685cf
+    EditorPosition: {x: 152, y: -15}
+    _triggerTypeName: DialogueSystem.Trigger.DT_SetActive, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _arguments:
+      rid: 4799321289791635973
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+    ArgumentDataConnections:
+    - SourceDataNodeGUID: 2df49b7a-d175-4f77-9cc6-b643aa218426
+      SourcePortName: GameObject
+      TargetFieldName: Object
+  - GUID: 2355ddc5-6a24-4f50-8363-13b9186c992c
+    EditorPosition: {x: 771, y: -26}
+    _triggerTypeName: DialogueSystem.Trigger.DT_SetActive, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _arguments:
+      rid: 4799321289791635974
     ExitPorts: []
-  StartNodeGUID: 1c91bb60-593a-4223-a59a-a0a172b3ead3
+    ArgumentDataConnections:
+    - SourceDataNodeGUID: b4d5364b-4153-439e-aeeb-1fc25588a399
+      SourcePortName: GameObject
+      TargetFieldName: Object
+  TriggerDataNodes:
+  - GUID: 2df49b7a-d175-4f77-9cc6-b643aa218426
+    EditorPosition: {x: -89, y: 137}
+    _dataTypeName: DialogueSystem.TriggerData.TD_GameObject, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _data:
+      rid: 4799321289791635941
+    OutputPorts: []
+  - GUID: b4d5364b-4153-439e-aeeb-1fc25588a399
+    EditorPosition: {x: 554, y: 275}
+    _dataTypeName: DialogueSystem.TriggerData.TD_GameObject, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    _data:
+      rid: 4799321289791635976
+    OutputPorts: []
+  LogicNodes: []
+  StartNode:
+    GUID: START_NODE
+    EditorPosition: {x: -106, y: -75}
+    ExitPorts:
+    - ChoiceText: 
+      TargetNodeGUID: 32276a24-58c8-4a31-a6cd-049ad84685cf
+  GameObjectReferences:
+  - Name: arrow
+    GameObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4799321289791635941
+      type: {class: TD_GameObjectData, ns: DialogueSystem.TriggerData, asm: Assembly-CSharp}
+      data:
+        GameObjectName: arrow
+    - rid: 4799321289791635973
+      type: {class: SetActiveArguments, ns: DialogueSystem.Trigger, asm: Assembly-CSharp}
+      data:
+        Object: {fileID: 0}
+        Visible: 1
+    - rid: 4799321289791635974
+      type: {class: SetActiveArguments, ns: DialogueSystem.Trigger, asm: Assembly-CSharp}
+      data:
+        Object: {fileID: 0}
+        Visible: 0
+    - rid: 4799321289791635976
+      type: {class: TD_GameObjectData, ns: DialogueSystem.TriggerData, asm: Assembly-CSharp}
+      data:
+        GameObjectName: arrow

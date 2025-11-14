@@ -3,52 +3,84 @@
   "WorkspaceRootPath": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\scripts\\playerspawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerspawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\triggerdatanodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\triggerdatanodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\scripts\\enums\\playertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enums\\playertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\triggerdatanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\triggerdatanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\scripts\\gameobjects\\farmfield\\farmfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameobjects\\farmfield\\farmfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\scripts\\gameobjects\\farmfield\\states\\ifarmfieldstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameobjects\\farmfield\\states\\ifarmfieldstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\scripts\\gameobjects\\farmfield\\states\\farmfieldstatebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameobjects\\farmfield\\states\\farmfieldstatebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\dialoguegrapheditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\dialoguegrapheditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\scripts\\gameobjects\\system\\dayofweekvisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameobjects\\system\\dayofweekvisibility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\startnodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\startnodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\game systems\\dialoguesystem\\system\\dialoguesystemmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\dialoguesystemmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|d:\\projekt\\unity\\rabbitvsmole_v2\\rabbitvsmole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\dialoguesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\dialoguesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\editor\\cinematictriggermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\editor\\cinematictriggermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\triggernode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\triggernode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_instantiate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_instantiate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\triggernodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\triggernodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\cinematictriggerzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\cinematictriggerzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_setactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_setactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\audiomanager\\system\\ambientsoundsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\audiomanager\\system\\ambientsoundsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dialoguetriggerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dialoguetriggerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\dialoguenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\dialoguenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\triggerdata\\triggerdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\triggerdata\\triggerdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\audiomanager\\system\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\audiomanager\\system\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\dialoguegraphview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5C850DE-FD9A-042C-8551-5AA46D70BE4D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\sequence\\editor\\dialoguegraphview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\idialoguetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\idialoguetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_playsound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_playsound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\dialoguesystemmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\dialoguesystemmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_playsound3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dt_playsound3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dialoguetriggerarguments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA6D9-198C-6599-8BC7-08A3D88E701A}|Assembly-CSharp.csproj|solutionrelative:assets\\game systems\\dialoguesystem\\system\\scripts\\trigger\\dialoguetriggerarguments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,159 +90,253 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FarmField.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\FarmField.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameObjects\\FarmField\\FarmField.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\FarmField.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameObjects\\FarmField\\FarmField.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAcwE8AAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TriggerDataNodeView.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerDataNodeView.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerDataNodeView.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerDataNodeView.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerDataNodeView.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:40:27.951Z",
+              "WhenOpened": "2025-11-13T23:18:52.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IFarmFieldState.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\States\\IFarmFieldState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameObjects\\FarmField\\States\\IFarmFieldState.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\States\\IFarmFieldState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameObjects\\FarmField\\States\\IFarmFieldState.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBIAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:39:54.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FarmFieldStateBase.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\States\\FarmFieldStateBase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameObjects\\FarmField\\States\\FarmFieldStateBase.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\FarmField\\States\\FarmFieldStateBase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameObjects\\FarmField\\States\\FarmFieldStateBase.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:39:46.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerType.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\Enums\\PlayerType.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enums\\PlayerType.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\Enums\\PlayerType.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enums\\PlayerType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:39:35.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerSpawn.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\PlayerSpawn.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerSpawn.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\PlayerSpawn.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerSpawn.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:37:09.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\GameManager.cs",
               "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\GameManager.cs",
               "RelativeToolTip": "Assets\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABuAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:35:24.681Z",
+              "WhenOpened": "2025-11-13T23:03:26.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DialogueSequence.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueSequence.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueSequence.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueSequence.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueSequence.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T22:48:50.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TriggerDataNode.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerDataNode.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerDataNode.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerDataNode.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerDataNode.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T22:13:53.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DialogueGraphEditor.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphEditor.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphEditor.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphEditor.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphEditor.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAqwNIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T22:04:31.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "CinematicTriggerMenu.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Editor\\CinematicTriggerMenu.cs",
-              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Editor\\CinematicTriggerMenu.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Editor\\CinematicTriggerMenu.cs",
-              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Editor\\CinematicTriggerMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:23:23.358Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "TriggerNodeView.cs",
               "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerNodeView.cs",
               "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerNodeView.cs",
               "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerNodeView.cs",
               "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\TriggerNodeView.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAawFwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAD4vyYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:21:59.844Z"
+              "WhenOpened": "2025-11-13T22:04:08.802Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DayOfWeekVisibility.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\System\\DayOfWeekVisibility.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameObjects\\System\\DayOfWeekVisibility.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Scripts\\GameObjects\\System\\DayOfWeekVisibility.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameObjects\\System\\DayOfWeekVisibility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "StartNodeView.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\StartNodeView.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\StartNodeView.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\StartNodeView.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\StartNodeView.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAkwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T23:11:49.277Z",
+              "WhenOpened": "2025-11-13T21:35:06.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AmbientSoundSource.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\AudioManager\\System\\AmbientSoundSource.cs",
-              "RelativeDocumentMoniker": "Assets\\Game Systems\\AudioManager\\System\\AmbientSoundSource.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\AudioManager\\System\\AmbientSoundSource.cs",
-              "RelativeToolTip": "Assets\\Game Systems\\AudioManager\\System\\AmbientSoundSource.cs",
-              "ViewState": "AgIAAMcAAAAAAAAAAAAYwN0AAAAdAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\AudioManager\\System\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\AudioManager\\System\\AudioManager.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\AudioManager\\System\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\AudioManager\\System\\AudioManager.cs",
+              "ViewState": "AgIAAD0DAAAAAAAAAAAswFADAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T22:56:42.865Z"
+              "WhenOpened": "2025-11-13T20:58:10.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CinematicTriggerZone.cs",
-              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\CinematicTriggerZone.cs",
-              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\CinematicTriggerZone.cs",
-              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\CinematicTriggerZone.cs",
-              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\CinematicTriggerZone.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAANAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "TriggerDataBase.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\TriggerData\\TriggerDataBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\TriggerData\\TriggerDataBase.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\TriggerData\\TriggerDataBase.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\TriggerData\\TriggerDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T22:33:53.396Z"
+              "WhenOpened": "2025-11-13T20:56:26.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DialogueNode.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueNode.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueNode.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueNode.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\DialogueNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T20:19:57.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TriggerNode.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerNode.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerNode.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerNode.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\TriggerNode.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAA9wGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T19:09:50.602Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "DT_Instantiate.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_Instantiate.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_Instantiate.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_Instantiate.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_Instantiate.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:59:32.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DialogueGraphView.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphView.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphView.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphView.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Sequence\\Editor\\DialogueGraphView.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAYwM0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T21:35:29.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DialogueTriggerBase.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerBase.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerBase.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T20:19:25.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DT_SetActive.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_SetActive.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_SetActive.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_SetActive.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_SetActive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:55:23.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DT_PlaySound3D.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound3D.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound3D.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound3D.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound3D.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:51:33.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DT_PlaySound.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DT_PlaySound.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:34:10.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DialogueTriggerArguments.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerArguments.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerArguments.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerArguments.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\DialogueTriggerArguments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:47:33.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IDialogueTrigger.cs",
+              "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\IDialogueTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\IDialogueTrigger.cs",
+              "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\IDialogueTrigger.cs",
+              "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\Scripts\\Trigger\\IDialogueTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T18:34:16.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "DialogueSystemMain.cs",
               "DocumentMoniker": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\DialogueSystemMain.cs",
               "RelativeDocumentMoniker": "Assets\\Game Systems\\DialogueSystem\\System\\DialogueSystemMain.cs",
               "ToolTip": "D:\\projekt\\Unity\\RabbitVsMole_v2\\RabbitVsMole_v2\\Assets\\Game Systems\\DialogueSystem\\System\\DialogueSystemMain.cs",
               "RelativeToolTip": "Assets\\Game Systems\\DialogueSystem\\System\\DialogueSystemMain.cs",
-              "ViewState": "AgIAAPMAAAAAAAAAAIBJwPIAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T22:37:23.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T19:01:28.652Z"
             }
           ]
         }

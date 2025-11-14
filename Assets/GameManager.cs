@@ -86,4 +86,29 @@ public class GameManager : MonoBehaviour
     {
         _instance._goldenCarrotPickState[_instance._currentDayOfWeek] = true;
     }
+
+    /// <summary>
+    /// Gets a value from GameManager by field name.
+    /// This method will be implemented to return appropriate values based on the field name.
+    /// </summary>
+    public static object Get(string field)
+    {
+        if (_instance == null)
+        {
+            Debug.LogWarning("GameManager.Get: Instance is null.");
+            return null;
+        }
+
+         switch (field)
+         {
+             case "GoldenCarrotPicked":
+                 return false;
+             default:
+                 Debug.LogWarning($"GameManager.Get: Unknown field '{field}'");
+                 return null;
+         }
+
+        Debug.LogWarning($"GameManager.Get: Field '{field}' not yet implemented.");
+        return null;
+    }
 }
